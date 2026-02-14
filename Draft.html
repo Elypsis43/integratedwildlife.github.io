@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoLink 2026 | Real-Time Bat Monitoring</title>
     
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:italic,wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -203,22 +202,48 @@
         .data-label { color: var(--muted-text); }
         .data-value { color: #fff; font-weight: 500; }
 
-        .signal-chart {
-            height: 50px;
-            display: flex;
-            align-items: flex-end;
-            gap: 4px;
-            margin-top: 30px;
-            background: rgba(0,0,0,0.2);
-            padding: 10px;
-            border-radius: 4px;
+        /* IMAGE OVERLAY STYLES */
+        .hardware-showcase {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            margin-top: 25px;
         }
 
-        .bar {
-            flex: 1;
-            background: var(--forest-accent);
-            border-radius: 1px;
-            transition: height 0.6s ease;
+        .hardware-showcase img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tint-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(45, 90, 39, 0.75) 0%, rgba(10, 12, 11, 0.4) 100%);
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .overlay-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--gold-leaf);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .overlay-content p {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            opacity: 0.8;
         }
 
         /* Impact Grid Styling */
@@ -378,7 +403,6 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-text">
                 <span class="hero-tag">
@@ -412,14 +436,23 @@
                     <span class="data-label">UPLINK METHOD</span>
                     <span class="data-value">L-BAND SAT</span>
                 </div>
-                <div class="signal-chart" id="signal-bars"></div>
-                <p style="margin-top: 30px; font-size: 0.6rem; color: var(--muted-text); font-family: 'Space Grotesk', monospace; text-transform: uppercase;">
+                
+                <div class="hardware-showcase">
+                    <div class="tint-overlay">
+                        <div class="overlay-content">
+                            <h3>Bio-Chitin Housing</h3>
+                            <p>120-Day Mission Architecture</p>
+                        </div>
+                    </div>
+                    <img src="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/IMG_2484.jpeg" alt="EchoLink Hardware">
+                </div>
+
+                <p style="margin-top: 20px; font-size: 0.6rem; color: var(--muted-text); font-family: 'Space Grotesk', monospace; text-transform: uppercase;">
                     System Status: Autonomous Monitoring Engaged
                 </p>
             </div>
         </section>
 
-        <!-- STRATEGIC IMPACT SECTION -->
         <section id="strategic-wins" style="padding: 100px 6% 40px; background: linear-gradient(180deg, var(--bg-midnight) 0%, var(--surface-deep) 100%); border-top: 1px solid var(--border-subtle);">
             <div style="max-width: 1400px; margin: 0 auto;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 20px;">
@@ -428,28 +461,24 @@
                 </div>
 
                 <div class="impact-grid">
-                    <!-- WIN 1: COST -->
                     <div style="background: rgba(255,255,255,0.02); padding: 40px; border-left: 3px solid var(--glow-green); border-radius: 4px;">
                         <span style="color: var(--glow-green); font-weight: 700; font-size: 1.4rem; font-family: var(--font-display);">80%—90%</span>
                         <h3 style="margin: 15px 0 10px 0; font-family: var(--font-display); font-size: 1.1rem;">Operational Cost Scaling</h3>
                         <p style="color: var(--muted-text); font-size: 0.95rem; line-height: 1.6;">EchoLink replaces brute-force VHF tracking with autonomous satellite surveillance, eliminating the $250k–$500k manual labor barrier.</p>
                     </div>
 
-                    <!-- WIN 2: WELFARE -->
                     <div style="background: rgba(255,255,255,0.02); padding: 40px; border-left: 3px solid var(--gold-leaf); border-radius: 4px;">
                         <span style="color: var(--gold-leaf); font-weight: 700; font-size: 1.4rem; font-family: var(--font-display);">&lt; 0.3g</span>
                         <h3 style="margin: 15px 0 10px 0; font-family: var(--font-display); font-size: 1.1rem;">Biologically Invisible</h3>
                         <p style="color: var(--muted-text); font-size: 0.95rem; line-height: 1.6;">Adhering to the strict 5% mass rule. Bio-hybrid chitin design ensures zero metabolic interference for New York’s Myotis.</p>
                     </div>
 
-                    <!-- WIN 3: LATENCY -->
                     <div style="background: rgba(255,255,255,0.02); padding: 40px; border-left: 3px solid #fff; border-radius: 4px;">
                         <span style="color: #fff; font-weight: 700; font-size: 1.4rem; font-family: var(--font-display);">&lt; 15 MIN</span>
                         <h3 style="margin: 15px 0 10px 0; font-family: var(--font-display); font-size: 1.1rem;">Detection Latency</h3>
                         <p style="color: var(--muted-text); font-size: 0.95rem; line-height: 1.6;">Traditional WNS detection takes weeks; EchoLink delivers real-time biosecurity alerts via LEO NTN satellite handshakes in minutes.</p>
                     </div>
 
-                    <!-- WIN 4: ENERGY (The New Even Point) -->
                     <div style="background: rgba(255,255,255,0.02); padding: 40px; border-left: 3px solid #6366f1; border-radius: 4px;">
                         <span style="color: #818cf8; font-weight: 700; font-size: 1.4rem; font-family: var(--font-display);">∞ CYCLE</span>
                         <h3 style="margin: 15px 0 10px 0; font-family: var(--font-display); font-size: 1.1rem;">Eco-Transient Energy</h3>
@@ -457,7 +486,6 @@
                     </div>
                 </div>
 
-                <!-- FUNDING ASK -->
                 <div style="margin-top: 60px; padding: 40px; border: 1px dashed var(--border-subtle); text-align: center; border-radius: 12px; background: rgba(74, 222, 128, 0.02);">
                     <p style="font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.4rem); color: #fff; margin-bottom: 25px; line-height: 1.4;">
                         "EchoLink is the nerve ending for a planet that finally has the ability to self-report its physical truth."
@@ -471,7 +499,6 @@
             </div>
         </section>
 
-        <!-- Performance Section -->
         <section class="impact-section">
             <span class="hero-tag">Comparative ROI</span>
             <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-top: 15px; font-weight: 700;">The End of Manual Tracking.</h2>
@@ -516,7 +543,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section class="cta-section">
             <div class="cta-inner">
                 <span class="hero-tag" style="justify-content: center;">Contact Registry</span>
@@ -612,32 +638,10 @@
             if(timerEl) timerEl.textContent = utc;
         }
 
-        function createBars() {
-            const container = document.getElementById('signal-bars');
-            if(!container) return;
-            container.innerHTML = '';
-            for(let i=0; i<35; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'bar';
-                bar.style.height = Math.random() * 100 + '%';
-                container.appendChild(bar);
-            }
-        }
-
-        function animateBars() {
-            const bars = document.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.height = Math.random() * 100 + '%';
-            });
-        }
-
         window.onload = () => {
             updateClock();
             setInterval(updateClock, 1000);
-            createBars();
-            setInterval(animateBars, 2000);
         };
     </script>
 </body>
 </html>
-
