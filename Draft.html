@@ -293,6 +293,14 @@
             text-transform: uppercase;
         }
 
+        #status-msg {
+            margin-top: 15px;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
         @media (max-width: 1024px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero-copy { margin: 0 auto 40px; }
@@ -415,20 +423,13 @@
                 <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-top: 10px;">Secure the 2026 Pilot.</h2>
                 <p style="color: var(--muted-text); margin-top: 20px; font-size: 1.1rem;">Seeking collaboration with DEC and research foundations for Saratoga/Albany deployments.</p>
                 
-                <form action="https://formspree.io/f/maqdooyp" method="POST" class="email-capture">
-                    <input type="email" name="email" placeholder="Institutional Email" required>
-                    
-                    <!-- THE FREE REDIRECT (Case-sensitive to match Thanks.html) -->
-                    <input type="hidden" name="_next" value="https://integratedwildlifesystems.com/Thanks.html">
-                    
-                    <!-- Formatting subject for inbox organization -->
+                <form id="contact-form" action="https://formspree.io/f/maqdooyp" method="POST" class="email-capture">
+                    <input type="email" name="email" id="email-field" placeholder="Institutional Email" required>
+                    <!-- Internal subject formatting -->
                     <input type="hidden" name="_subject" value="New Inquiry: EchoLink 2026 Pilot">
-                    
-                    <!-- Ensures reply goes to the researcher who inquired -->
-                    <input type="hidden" name="_replyto" value="%email%">
-                    
-                    <button type="submit">INQUIRE</button>
+                    <button type="submit" id="submit-btn">INQUIRE</button>
                 </form>
+                <p id="status-msg" style="display: none;"></p>
                 
             </div>
         </section>
@@ -443,6 +444,55 @@
     </footer>
 
     <script>
+        // REDIRECT BYPASS SCRIPT
+        const form = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const statusMsg = document.getElementById("status-msg");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Stop standard browser behavior
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = "SENDING...";
+            submitBtn.style.opacity = "0.5";
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // SUCCESS: Manually redirect to your custom page
+                    // REPLACE yourdomain.com with your actual URL
+                    window.location.href = "https://integratedwildlifesystems.com/Thanks.html"; 
+                } else {
+                    // HANDLE ERROR (e.g. invalid email)
+                    const result = await response.json();
+                    statusMsg.style.display = "block";
+                    statusMsg.style.color = "#ff6b6b";
+                    statusMsg.innerText = "Error: Please check your email address.";
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "INQUIRE";
+                    submitBtn.style.opacity = "1";
+                }
+            } catch (error) {
+                // NETWORK ERROR
+                statusMsg.style.display = "block";
+                statusMsg.style.color = "#ff6b6b";
+                statusMsg.innerText = "Uplink Failure. Check connection.";
+                submitBtn.disabled = false;
+                submitBtn.textContent = "INQUIRE";
+                submitBtn.style.opacity = "1";
+            }
+        });
+
+        // UI ANIMATIONS & UTILITIES
         function updateClock() {
             const now = new Date();
             const timeString = now.getUTCHours().toString().padStart(2, '0') + ":" + 
