@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Received | Integrated Wildlife Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-midnight: #0a0c0b;
+            --surface-deep: #141816;
+            --forest-accent: #2d5a27;
+            --glow-green: #4ade80;
+            --muted-text: #94a3b8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-midnight);
+            color: #f1f5f9;
+            font-family: var(--font-body);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .success-card {
+            background: var(--surface-deep);
+            border: 1px solid var(--border-subtle);
+            padding: 60px 40px;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--glow-green);
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: var(--muted-text);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--glow-green);
+            padding-bottom: 4px;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .footer-line {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            left: 0;
+            color: #475569;
+            font-size: 0.65rem;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <div class="icon-circle">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <h1>Transmission Received</h1>
+        <p>Your inquiry regarding the 2026 EchoLink Pilot has been logged. A member of our technical team will review your credentials and reach out shortly.</p>
+        
+        <a href="index.html" class="back-link">Return to Command Center</a>
+    </div>
+
+    <div class="footer-line">
+        Integrated Wildlife Systems // Secure Uplink
+    </div>
+
+</body>
+</html>
+
