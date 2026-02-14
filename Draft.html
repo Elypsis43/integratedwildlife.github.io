@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DRAFT | Integrated Wildlife Systems | EchoLink 2026</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:italic,wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -23,17 +25,19 @@
             --font-body: 'Inter', sans-serif;
         }
 
+        /* Base Reset */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        html { scroll-behavior: smooth; }
         body {
             background-color: var(--bg-midnight);
             color: #f1f5f9;
             font-family: var(--font-body);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Global Texture */
         body::before {
             content: "";
             position: fixed;
@@ -44,42 +48,45 @@
             z-index: 50;
         }
 
+        /* Navigation */
         nav {
-            padding: 20px 6%;
+            padding: 15px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 12, 11, 0.9);
-            backdrop-filter: blur(20px);
+            background: rgba(10, 12, 11, 0.95);
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .logo {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #fff;
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
 
         .status-badge {
-            font-size: 0.65rem;
-            background: rgba(74, 222, 128, 0.1);
+            font-size: 0.6rem;
+            background: rgba(74, 222, 128, 0.05);
             color: var(--glow-green);
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 100px;
             border: 1px solid rgba(74, 222, 128, 0.2);
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: 0.05em;
         }
 
         .pulse-dot {
@@ -90,19 +97,14 @@
             animation: pulse-op 2s infinite;
         }
 
-        @keyframes pulse-op {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
+        /* Hero Section */
         .hero {
-            padding: 60px 6% 100px;
-            max-width: 1300px;
+            padding: 80px 6% 120px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
             align-items: center;
         }
 
@@ -111,12 +113,12 @@
             font-family: var(--font-display);
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            font-size: 0.75rem;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .trl-tag {
@@ -130,11 +132,11 @@
 
         h1 {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.2rem, 6vw, 4.8rem);
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.0;
             margin-bottom: 35px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
         h1 em {
@@ -145,60 +147,48 @@
         }
 
         .hero-copy {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--muted-text);
-            margin-bottom: 45px;
-            max-width: 520px;
+            margin-bottom: 50px;
+            max-width: 580px;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn {
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            padding: 18px 34px;
-            border-radius: 4px;
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .primary-btn, .secondary-btn {
+            padding: 18px 36px;
+            border-radius: 6px;
             font-weight: 700;
             font-family: var(--font-display);
-            transition: all 0.3s ease;
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: #fff;
             text-decoration: none;
-            border: 1px solid var(--border-subtle);
-            padding: 18px 34px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-family: var(--font-display);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
+        .primary-btn { background: #fff; color: #000; border: 1px solid #fff; }
+        .secondary-btn { background: transparent; color: #fff; border: 1px solid var(--border-subtle); }
+        .primary-btn:hover { background: var(--glow-green); border-color: var(--glow-green); transform: translateY(-3px); }
+        .secondary-btn:hover { border-color: #fff; transform: translateY(-3px); }
 
-        .primary-btn:hover { background: var(--glow-green); transform: translateY(-2px); }
-        .secondary-btn:hover { border-color: #fff; transform: translateY(-2px); }
-
+        /* Telemetry Box */
         .telemetry-node {
             background: var(--surface-deep);
             border: 1px solid var(--border-subtle);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 40px;
             position: relative;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);
+            width: 100%;
         }
 
         .node-header {
             display: flex;
             justify-content: space-between;
             font-family: var(--font-display);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--muted-text);
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border-subtle);
             padding-bottom: 20px;
@@ -207,271 +197,261 @@
         .data-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-family: 'Space Grotesk', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .data-label { color: var(--muted-text); }
-        .data-value { color: #fff; }
+        .data-value { color: #fff; font-weight: 500; }
 
         .signal-chart {
-            height: 40px;
+            height: 50px;
             display: flex;
             align-items: flex-end;
             gap: 4px;
             margin-top: 30px;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 4px;
         }
 
         .bar {
             flex: 1;
             background: var(--forest-accent);
-            border-radius: 2px 2px 0 0;
-            transition: height 0.4s ease;
+            border-radius: 1px;
+            transition: height 0.6s ease;
         }
 
-        .impact-section {
-            padding: 100px 6%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
+        /* Comparison Table */
+        .impact-section { padding: 120px 6%; max-width: 1400px; margin: 0 auto; }
         .table-wrapper {
-            overflow-x: auto;
-            margin-top: 40px;
+            margin-top: 50px;
             background: rgba(255,255,255,0.01);
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid var(--border-subtle);
+            overflow-x: auto;
         }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: var(--font-display);
-            min-width: 600px;
-        }
-
+        .comparison-table { width: 100%; border-collapse: collapse; min-width: 800px; }
         .comparison-table th {
             text-align: left;
-            padding: 20px;
+            padding: 25px;
             color: var(--muted-text);
             text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            background: rgba(255,255,255,0.02);
         }
-
-        .comparison-table td {
-            padding: 25px 20px;
-            border-bottom: 1px solid var(--border-subtle);
-            font-size: 1rem;
-        }
-
+        .comparison-table td { padding: 30px 25px; border-bottom: 1px solid var(--border-subtle); font-size: 0.95rem; }
         .highlight-col {
             color: var(--glow-green);
             font-weight: 700;
-            background: rgba(74, 222, 128, 0.02);
+            background: rgba(74, 222, 128, 0.03);
+            border-left: 1px solid rgba(74, 222, 128, 0.1);
+            border-right: 1px solid rgba(74, 222, 128, 0.1);
         }
 
-        .grid-section {
-            padding: 100px 6%;
-            background: #0f1211;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .feature-box i {
-            color: var(--glow-green);
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-        }
-
-        .feature-box h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .feature-box p {
-            color: var(--muted-text);
-            font-size: 0.95rem;
-        }
-
+        /* Contact Section */
+        .cta-section { padding: 120px 6%; text-align: center; }
         .cta-inner {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
-            background: linear-gradient(145deg, #141816 0%, #0a0c0b 100%);
-            padding: 80px 40px;
-            border-radius: 24px;
+            background: linear-gradient(180deg, var(--surface-deep) 0%, var(--bg-midnight) 100%);
+            padding: 80px 5%;
+            border-radius: 32px;
             border: 1px solid var(--border-subtle);
-            text-align: center;
+        }
+
+        .form-container {
+            max-width: 550px;
+            margin: 40px auto 0;
+            position: relative;
         }
 
         .email-capture {
             display: flex;
-            max-width: 500px;
-            margin: 40px auto 0;
             background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            padding: 6px;
+            border-radius: 100px;
+            padding: 8px;
             border: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
+
+        .email-capture:focus-within { border-color: var(--glow-green); }
 
         .email-capture input {
             background: transparent;
             border: none;
-            padding: 15px 20px;
+            padding: 0 25px;
             color: white;
             flex-grow: 1;
             outline: none;
             font-family: var(--font-body);
+            font-size: 1rem;
         }
 
         .email-capture button {
             background: var(--forest-accent);
             color: white;
             border: none;
-            padding: 0 30px;
-            border-radius: 4px;
-            font-weight: 600;
+            padding: 15px 35px;
+            border-radius: 100px;
+            font-weight: 700;
             font-family: var(--font-display);
             cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        #status-msg {
-            margin-top: 15px;
-            font-family: var(--font-display);
-            font-size: 0.8rem;
+            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            font-size: 0.8rem;
         }
 
-        footer {
-            padding: 60px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #475569;
-            font-size: 0.75rem;
-            border-top: 1px solid var(--border-subtle);
+        .email-capture button:hover { background: var(--glow-green); color: #000; }
+        .email-capture button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        #status-msg {
+            margin-top: 20px;
             font-family: var(--font-display);
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-height: 20px;
         }
 
-        @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 40px; }
-            .hero-copy { margin: 0 auto 40px; }
+        /* Footer */
+        footer {
+            padding: 80px 6% 40px;
+            border-top: 1px solid var(--border-subtle);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            font-family: var(--font-display);
+        }
+
+        .footer-info { color: var(--muted-text); font-size: 0.7rem; letter-spacing: 0.05em; line-height: 2; }
+        .footer-links { display: flex; gap: 30px; justify-content: flex-end; }
+        .footer-links a { color: #fff; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.6; }
+        .footer-links a:hover { opacity: 1; color: var(--glow-green); }
+
+        /* Animations */
+        @keyframes pulse-op { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* Tablet & Mobile Breaks */
+        @media (max-width: 1100px) {
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+            .hero-copy { margin: 0 auto 50px; }
             .btn-group { justify-content: center; }
             .hero-tag { justify-content: center; }
-            .grid-section { grid-template-columns: 1fr; }
-            .telemetry-node { max-width: 500px; margin: 40px auto 0; }
-            .email-capture { flex-direction: column; background: transparent; border: none; gap: 10px; }
-            .email-capture input { background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px; }
-            .email-capture button { padding: 15px; border-radius: 8px; }
-            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .telemetry-node { max-width: 600px; margin: 0 auto; }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .status-badge { padding: 4px 8px; font-size: 0.55rem; }
-            .logo { font-size: 0.75rem; }
+        @media (max-width: 600px) {
+            .email-capture { flex-direction: column; background: transparent; border: none; padding: 0; gap: 15px; }
+            .email-capture input { 
+                background: rgba(255,255,255,0.03); 
+                border: 1px solid var(--border-subtle); 
+                border-radius: 12px;
+                height: 60px;
+            }
+            .email-capture button { border-radius: 12px; height: 60px; }
+            footer { grid-template-columns: 1fr; text-align: center; }
+            .footer-links { justify-content: center; margin-bottom: 20px; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
-            <i class="fa-solid fa-wind" style="color: var(--glow-green);"></i>
+        <a href="Draft.html" class="logo">
+            <i class="fa-solid fa-satellite" style="color: var(--glow-green);"></i>
             Integrated Wildlife Systems
-        </div>
+        </a>
         <div class="status-badge">
             <div class="pulse-dot"></div>
-            SATELLITE LINK: ESTABLISHED
+            PILOT UPLINK: ACTIVE
         </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-text">
                 <span class="hero-tag">
-                    2026 Institutional Pilot
+                    Institutional Pilot 2026
                     <span class="trl-tag">TRL-6</span>
                 </span>
-                <h1>Protecting the <em>unseen</em> nodes of our ecosystem.</h1>
+                <h1>Monitoring wildlife at the speed of <em>thought</em>.</h1>
                 <p class="hero-copy">
-                    EchoLink transforms individual Myotis bats into intelligent nodes in a shared sensing network—closing the 3-week detection gap for White-Nose Syndrome.
+                    EchoLink is the world's first autonomous bat telemetry platform. We close the 30-day detection gap for White-Nose Syndrome by turning individual Myotis into real-time bio-sensors.
                 </p>
                 <div class="btn-group">
-                    <a href="Roadmap.html" class="primary-btn">PILOT ROADMAP</a>
-                    <a href="Regulatory.html" class="secondary-btn">NY-DEC STANDARDS</a>
+                    <a href="Roadmap.html" class="primary-btn">View Pilot Roadmap</a>
+                    <a href="Regulatory.html" class="secondary-btn">Agency Compliance</a>
                 </div>
             </div>
 
             <div class="telemetry-node">
                 <div class="node-header">
-                    <span>PILOT: ADK_KARST_04</span>
+                    <span>STATION: ADK_HUB_01</span>
                     <span id="live-timer">00:00:00 UTC</span>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">TELEMETRY LATENCY</span>
-                    <span class="data-value" style="color: var(--glow-green);">< 15 MINUTES</span>
+                    <span class="data-label">ACTIVE NODES</span>
+                    <span class="data-value" style="color: var(--glow-green);">142</span>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">TRANSMISSION</span>
-                    <span class="data-value">NTN SATELLITE</span>
+                    <span class="data-label">LINK QUALITY</span>
+                    <span class="data-value">98.4% S/N</span>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">STATUS</span>
-                    <span class="data-value">BIO-ANALYSIS ONLINE</span>
+                    <span class="data-label">UPLINK METHOD</span>
+                    <span class="data-value">L-BAND SAT</span>
                 </div>
                 <div class="signal-chart" id="signal-bars"></div>
-                <p style="margin-top: 25px; font-size: 0.65rem; color: var(--muted-text); font-family: monospace;">
-                    [AUTONOMOUS_UPLINK_SECURE]
+                <p style="margin-top: 30px; font-size: 0.6rem; color: var(--muted-text); font-family: 'Space Grotesk', monospace; text-transform: uppercase;">
+                    System Status: Autonomous Monitoring Engaged
                 </p>
             </div>
         </section>
 
+        <!-- Performance Section -->
         <section class="impact-section">
-            <span class="hero-tag">Comparative Metrics</span>
-            <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-top: 10px;">Surpassing the Financial Wall.</h2>
+            <span class="hero-tag">Comparative ROI</span>
+            <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-top: 15px;">The End of Manual Tracking.</h2>
+            
             <div class="table-wrapper">
                 <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>Performance Metric</th>
-                            <th>Traditional VHF</th>
+                            <th>Traditional VHF Tags</th>
                             <th class="highlight-col">EchoLink Platform</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Unit Cost (Scalable)</td>
-                            <td>$250 - $500</td>
+                            <td>Cost Per Tag</td>
+                            <td>$250.00 — $400.00</td>
                             <td class="highlight-col">< $50.00</td>
                         </tr>
                         <tr>
-                            <td>Labor Hours (per season)</td>
-                            <td>~400 Field Hours</td>
-                            <td class="highlight-col">0 (Autonomous)</td>
+                            <td>Data Latency</td>
+                            <td>3 — 6 Weeks (Manual)</td>
+                            <td class="highlight-col">< 15 Minutes (Auto)</td>
                         </tr>
                         <tr>
-                            <td>Detection Latency</td>
-                            <td>3 - 6 Weeks</td>
-                            <td class="highlight-col">< 15 Minutes</td>
+                            <td>Field Labor Cost</td>
+                            <td>High (Teams required)</td>
+                            <td class="highlight-col">Zero (Satellite-Direct)</td>
                         </tr>
                         <tr>
-                            <td>Total Cost (10 Units)</td>
-                            <td>$12,500.00+</td>
-                            <td class="highlight-col">$500.00</td>
+                            <td>Deployment Range</td>
+                            <td>Line of Sight Only</td>
+                            <td class="highlight-col">Global / Remote</td>
                         </tr>
                         <tr>
-                            <td>Biocompatibility</td>
-                            <td>Plastic/Epoxy</td>
+                            <td>Environmental Impact</td>
+                            <td>Persistent E-Waste</td>
                             <td class="highlight-col">Biodegradable Chitin</td>
                         </tr>
                     </tbody>
@@ -479,114 +459,107 @@
             </div>
         </section>
 
-        <section class="grid-section">
-            <div class="feature-box">
-                <i class="fa-solid fa-leaf"></i>
-                <h3>Sustainability</h3>
-                <p>Compostable Chitin and Hemp housing. Hardware is designed to be biologically invisible and disintegrate naturally after use.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fa-solid fa-satellite-dish"></i>
-                <h3>Infrastructure-Free</h3>
-                <p>Direct-to-Cell LEO satellite connectivity removes the "Labor Wall" of manual tracking in deep wilderness.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fa-solid fa-lock"></i>
-                <h3>Sovereign Privacy</h3>
-                <p>Sensitive habitat coordinates are secured via AES-256, ensuring critical data remains exclusive to agency stakeholders.</p>
-            </div>
-        </section>
-
-        <section style="padding: 100px 6%;">
+        <!-- Contact Section -->
+        <section class="cta-section">
             <div class="cta-inner">
-                <span class="hero-tag" style="justify-content: center;">Institutional Contact</span>
-                <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-top: 10px;">Secure the 2026 Pilot.</h2>
+                <span class="hero-tag" style="justify-content: center;">Contact Registry</span>
+                <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 15px;">Secure 2026 Pilot Access.</h2>
+                <p style="color: var(--muted-text); margin-top: 15px;">Submit your institutional email to receive the full technical whitepaper and pilot specifications.</p>
                 
-                <form id="contact-form" action="https://formspree.io/f/maqdooyp" method="POST" class="email-capture">
-                    <!-- name="email" is critical for Formspree "Reply-To" -->
-                    <input type="email" name="email" id="email-field" placeholder="Institutional Email" required>
-                    <!-- name="_replyto" ensures standard email clients find the contact address -->
-                    <input type="hidden" name="_replyto" id="reply-to-shadow">
-                    <input type="hidden" name="_subject" value="New Inquiry: EchoLink 2026 Pilot">
-                    <button type="submit" id="submit-btn">INQUIRE</button>
-                </form>
-                <p id="status-msg" style="display: none;"></p>
+                <div class="form-container">
+                    <!-- CRITICAL: name="email" and name="_replyto" fixed for Formspree -->
+                    <form id="contact-form" action="https://formspree.io/f/maqdooyp" method="POST" class="email-capture">
+                        <input type="email" name="email" id="user-email" placeholder="Institutional Email (e.g. .gov, .edu)" required>
+                        <input type="hidden" name="_replyto" id="reply-to-mirror">
+                        <input type="hidden" name="_subject" value="IWS EchoLink Pilot Inquiry">
+                        <button type="submit" id="submit-btn">Register Interest</button>
+                    </form>
+                    <div id="status-msg"></div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div>IWS // 2026 PILOT PLATFORM</div>
-        <div style="display: flex; gap: 40px;">
-            <a href="Ethics.html" style="color: inherit; text-decoration: none;">ETHICS</a>
-            <a href="Compliance.html" style="color: inherit; text-decoration: none;">COMPLIANCE</a>
+        <div class="footer-info">
+            INTEGRATED WILDLIFE SYSTEMS (IWS)<br>
+            2026 PILOT PROGRAM // TRACELESS TELEMETRY<br>
+            ALBANY, NY — FIELD DIVISION
+        </div>
+        <div class="footer-links">
+            <a href="Privacy.html">PRIVACY</a>
+            <a href="Compliance.html">COMPLIANCE</a>
+            <a href="Ethics.html">ETHICS</a>
+            <a href="mailto:info@integratedwildlifesystems.com">CONTACT</a>
         </div>
     </footer>
 
     <script>
+        // FORM LOGIC
         const form = document.getElementById("contact-form");
-        const emailInput = document.getElementById("email-field");
-        const shadowInput = document.getElementById("reply-to-shadow");
+        const emailInput = document.getElementById("user-email");
+        const mirrorInput = document.getElementById("reply-to-mirror");
         const submitBtn = document.getElementById("submit-btn");
         const statusMsg = document.getElementById("status-msg");
 
-        // Sync the hidden reply-to field whenever user types
+        // Keep the hidden _replyto field in sync for Formspree
         emailInput.addEventListener("input", (e) => {
-            shadowInput.value = e.target.value;
+            mirrorInput.value = e.target.value;
         });
 
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault();
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
             
+            // Visual feedback
             submitBtn.disabled = true;
-            submitBtn.textContent = "SENDING...";
-            submitBtn.style.opacity = "0.5";
+            submitBtn.textContent = "TRANSMITTING...";
+            statusMsg.style.color = "var(--gold-leaf)";
+            statusMsg.textContent = "Connecting to secure gateway...";
 
-            const data = new FormData(event.target);
-            
+            const formData = new FormData(form);
+
             try {
-                const response = await fetch(event.target.action, {
+                const response = await fetch(form.action, {
                     method: 'POST',
-                    body: data,
+                    body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
-                    // Success: Redirect to custom thanks page
-                    window.location.href = "https://integratedwildlifesystems.com/Thanks.html"; 
+                    // Success Redirect
+                    window.location.href = "https://integratedwildlifesystems.com/Thanks.html";
                 } else {
-                    const result = await response.json();
-                    statusMsg.style.display = "block";
+                    const data = await response.json();
                     statusMsg.style.color = "#ff6b6b";
-                    statusMsg.innerText = result.errors ? result.errors[0].message : "Error: Check email format.";
-                    resetBtn();
+                    statusMsg.textContent = data.errors ? data.errors[0].message : "Submission error. Check email.";
+                    resetForm();
                 }
-            } catch (error) {
-                statusMsg.style.display = "block";
+            } catch (err) {
                 statusMsg.style.color = "#ff6b6b";
-                statusMsg.innerText = "Uplink Failure. Check connection.";
-                resetBtn();
+                statusMsg.textContent = "Network Timeout. Please try again.";
+                resetForm();
             }
         });
 
-        function resetBtn() {
+        function resetForm() {
             submitBtn.disabled = false;
-            submitBtn.textContent = "INQUIRE";
-            submitBtn.style.opacity = "1";
+            submitBtn.textContent = "Register Interest";
         }
 
-        // UI UTILITIES
+        // TELEMETRY ANIMATION
         function updateClock() {
             const now = new Date();
-            const timeString = now.getUTCHours().toString().padStart(2, '0') + ":" + 
-                               now.getUTCMinutes().toString().padStart(2, '0') + ":" + 
-                               now.getUTCSeconds().toString().padStart(2, '0') + " UTC";
-            document.getElementById('live-timer').textContent = timeString;
+            const utc = now.getUTCHours().toString().padStart(2, '0') + ":" + 
+                        now.getUTCMinutes().toString().padStart(2, '0') + ":" + 
+                        now.getUTCSeconds().toString().padStart(2, '0') + " UTC";
+            const timerEl = document.getElementById('live-timer');
+            if(timerEl) timerEl.textContent = utc;
         }
 
-        function initBars() {
+        function createBars() {
             const container = document.getElementById('signal-bars');
-            for(let i=0; i<30; i++) {
+            if(!container) return;
+            for(let i=0; i<35; i++) {
                 const bar = document.createElement('div');
                 bar.className = 'bar';
                 bar.style.height = Math.random() * 100 + '%';
@@ -594,21 +567,19 @@
             }
         }
 
-        function animateData() {
+        function animateBars() {
             const bars = document.querySelectorAll('.bar');
-            setInterval(() => {
-                bars.forEach(bar => {
-                    bar.style.height = Math.random() * 100 + '%';
-                });
-            }, 1500);
+            bars.forEach(bar => {
+                bar.style.height = Math.random() * 100 + '%';
+            });
         }
 
-        window.addEventListener('load', () => {
-            initBars();
-            animateData();
-            setInterval(updateClock, 1000);
+        window.onload = () => {
             updateClock();
-        });
+            setInterval(updateClock, 1000);
+            createBars();
+            setInterval(animateBars, 2000);
+        };
     </script>
 </body>
 </html>
