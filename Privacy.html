@@ -23,206 +23,193 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
             background-color: var(--bg-midnight);
-            color: #f1f5f9;
+            color: #e2e8f0;
             font-family: var(--font-body);
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Nav Consistency */
+        /* HEADER & NAV */
         nav {
-            padding: 15px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 12, 11, 0.95);
-            backdrop-filter: blur(15px);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(10, 12, 11, 0.8);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
         }
 
-        .logo {
+        .back-link {
+            color: var(--glow-green);
+            text-decoration: none;
             font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-weight: 500;
+            font-size: 0.85rem;
             letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #fff;
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
         }
 
-        /* Content Layout */
-        .content-container {
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 0 6%;
+        .back-link:hover {
+            color: white;
+            transform: translateX(-5px);
         }
 
-        .protocol-header {
-            border-left: 3px solid var(--glow-green);
-            padding-left: 30px;
-            margin-bottom: 60px;
-        }
-
-        .protocol-header span {
+        .brand-tag {
             font-family: var(--font-display);
-            color: var(--gold-leaf);
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
             font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--muted-text);
+            text-transform: uppercase;
+        }
+
+        /* CONTENT */
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
         }
 
         h1 {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-top: 10px;
-            letter-spacing: -0.02em;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: white;
+            line-height: 1.1;
         }
 
-        .last-updated {
-            font-family: var(--font-display);
-            font-size: 0.65rem;
-            color: var(--muted-text);
-            text-transform: uppercase;
-            margin-top: 20px;
-            display: block;
+        h1 em {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--glow-green);
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         h2 {
             font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: #fff;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            color: var(--gold-leaf);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         h2 i {
-            color: var(--forest-accent);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
         p {
-            color: var(--muted-text);
-            margin-bottom: 20px;
-            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: #cbd5e1;
         }
 
-        .data-card {
+        .info-box {
             background: var(--surface-deep);
             border: 1px solid var(--border-subtle);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
+            padding: 2rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .data-card ul {
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 2px; height: 100%;
+            background: var(--glow-green);
+        }
+
+        ul {
             list-style: none;
         }
 
-        .data-card li {
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            color: #f1f5f9;
         }
 
-        .data-card li::before {
-            content: "→";
+        li::before {
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--glow-green);
         }
 
+        strong {
+            color: white;
+            font-weight: 600;
+        }
+
         footer {
-            padding: 60px 6%;
-            border-top: 1px solid var(--border-subtle);
             text-align: center;
+            padding: 4rem 2rem;
             font-family: var(--font-display);
             font-size: 0.7rem;
+            letter-spacing: 0.3em;
             color: var(--muted-text);
-            letter-spacing: 0.1em;
+            border-top: 1px solid var(--border-subtle);
             text-transform: uppercase;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--glow-green);
-            text-decoration: none;
-            font-family: var(--font-display);
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            transition: transform 0.3s;
-        }
-
-        .back-link:hover {
-            transform: translateX(-5px);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 600px) {
-            .content-container { margin: 40px auto; }
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 2.2rem; }
+            .container { margin: 2rem auto; }
+            nav { padding: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="Draft.html" class="logo">
-            <i class="fa-solid fa-satellite" style="color: var(--glow-green);"></i>
-            Integrated Wildlife Systems
+        <a href="index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> BACK TO OVERVIEW
         </a>
+        <div class="brand-tag">Integrated Wildlife Systems</div>
     </nav>
 
-    <div class="content-container">
-        <a href="Draft.html" class="back-link">
-            <i class="fa-solid fa-arrow-left"></i> RETURN TO PLATFORM
-        </a>
-
-        <header class="protocol-header">
-            <span>Data Sovereignty Protocol</span>
-            <h1>Privacy & Security Policy</h1>
-            <span class="last-updated">Classification: PUBLIC // Effective: January 2026</span>
-        </header>
+    <div class="container">
+        <h1>Privacy <em>Protocol</em>.</h1>
 
         <section>
-            <h2><i class="fa-solid fa-shield-halved"></i> 1.0 Data Philosophy</h2>
-            <p>At Integrated Wildlife Systems (IWS), we recognize that ecological data is a matter of national and environmental security. Our EchoLink platform is built on the principle of <strong>Minimum Necessary Collection</strong>. We do not track users; we track environmental health indicators.</p>
+            <h2><i class="fa-solid fa-fingerprint"></i> 1.0 Data Sovereignty</h2>
+            <p>At Integrated Wildlife Systems (IWS), we believe biological data is a sovereign asset. Our EchoLink platform is built on the principle of "Privacy by Design," ensuring that sensitive environmental intelligence is protected from unauthorized access.</p>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-database"></i> 2.0 Information We Collect</h2>
-            <p>When you interact with the IWS Pilot portal, we collect limited data necessary for institutional collaboration:</p>
-            <div class="data-card">
-                <ul>
-                    <li><strong>Institutional Identity:</strong> Name and professional email address for agency verification.</li>
-                    <li><strong>Network Metadata:</strong> IP addresses and access logs (retained for 30 days) to prevent unauthorized access to pilot telemetry.</li>
-                    <li><strong>Inquiry Content:</strong> Information provided via secure registration forms.</li>
-                </ul>
-            </div>
+            <h2><i class="fa-solid fa-satellite-dish"></i> 2.0 Collection Scope</h2>
+            <p>IWS nodes collect only high-resolution acoustic and thermal telemetry required for White-Nose Syndrome (WNS) surveillance. We do not collect:</p>
+            <p>• Human voice data or identifiable human imagery.<br>
+               • Commercial location data irrelevant to karst biology.</p>
         </section>
 
         <section>
-            <h2><i class="fa-solid fa-microchip"></i> 3.0 Telemetry Security</h2>
-            <p>The EchoLink platform transmits data from wild subjects directly to LEO satellites. This data stream is handled with the following security measures:</p>
-            <div class="data-card">
+            <h2><i class="fa-solid fa-shield-halved"></i> 3.0 Security Measures</h2>
+            <div class="info-box">
                 <ul>
                     <li><strong>End-to-End Encryption:</strong> All biosensor data is encrypted at the source node using AES-256 standards.</li>
                     <li><strong>Habitat Obfuscation:</strong> Critical habitat locations (hibernacula) are only accessible to verified agency stakeholders.</li>
@@ -234,7 +221,7 @@
         <section>
             <h2><i class="fa-solid fa-handshake-angle"></i> 4.0 Third-Party Sharing</h2>
             <p>IWS does not sell, trade, or monetize institutional data. We share information only with:</p>
-            <p>• <strong>State/Federal Agencies:</strong> Per pilot agreements (e.g., NY-DEC, USFWS).<br>
+            <p>• <strong>State/Federal Agencies:</strong> Per pilot agreements (e.g., NY-DEC, USFWS).<br>  
         </section>
 
         <section>
@@ -245,7 +232,7 @@
     </div>
 
     <footer>
-        Integrated Wildlife Systems, LLC // Data Sovereignty Division // 2026
+        Integrated Wildlife Systems // Data Sovereignty Division // 2026
     </footer>
 
 </body>
