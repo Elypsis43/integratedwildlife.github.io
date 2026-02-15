@@ -220,31 +220,33 @@
             display: block;
         }
 
-        .tint-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(45, 90, 39, 0.75) 0%, rgba(10, 12, 11, 0.4) 100%);
-            z-index: 2;
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-        }
+        /* The Tint Layer - Changed to align-items: flex-start */
+.tint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(45, 90, 39, 0.75) 0%, 
+        rgba(10, 12, 11, 0.4) 100%
+    );
+    z-index: 2;
+    display: flex;
+    align-items: flex-start; /* This moves text to the top */
+    padding: 20px; /* This creates the "spacing" from the top/left edges */
+}
 
-        .overlay-content h3 {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--gold-leaf);
-            margin-bottom: 4px;
-            letter-spacing: -0.01em;
-        }
-
-        .overlay-content p {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #fff;
-            opacity: 0.8;
-        }
+/* Updated content spacing */
+.overlay-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--gold-leaf);
+    margin: 0 0 4px 0; /* Ensures the gap between gold and white text is tight */
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
 
         /* Impact Grid Styling */
         .impact-grid {
