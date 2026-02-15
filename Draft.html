@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoLink 2026 | Real-Time Bat Monitoring</title>
     
+    <!-- SOCIAL MEDIA PREVIEW TAGS (Link Unfurling) -->
+    <meta property="og:title" content="EchoLink 2026 | Integrated Wildlife Systems">
+    <meta property="og:description" content="Monitoring wildlife at the speed of thought. Explore the world's first autonomous bat telemetry platform for real-time biosecurity.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/fb80e954-40fc-4eda-aebb-07db6ccf10d6.png">
+    <meta property="og:url" content="https://integratedwildlifesystems.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EchoLink 2026 | Real-Time Bat Monitoring">
+    <meta name="twitter:description" content="Autonomous biosensing for the next generation of wildlife conservation.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/fb80e954-40fc-4eda-aebb-07db6ccf10d6.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:italic,wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -47,9 +58,9 @@
             z-index: 50;
         }
 
-        /* Navigation - Optimized for Mobile Spacing */
+        /* Navigation */
         nav {
-            padding: 15px 4%; /* Reduced side padding slightly for more horizontal space */
+            padding: 15px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,20 +75,20 @@
         .logo {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: clamp(0.65rem, 2.5vw, 0.9rem); /* Adjusted clamp for mobile */
+            font-size: clamp(0.65rem, 2.5vw, 0.9rem);
             letter-spacing: 0.05em;
             text-transform: uppercase;
             color: #fff;
             display: flex;
             align-items: center;
-            gap: 8px; /* Slightly tighter gap on logo elements for mobile */
+            gap: 8px;
             text-decoration: none;
-            flex-shrink: 1; /* Allow logo to take priority */
+            flex-shrink: 1;
             margin-right: 10px;
         }
 
         .logo img {
-            height: 24px; /* Slightly smaller icon on mobile */
+            height: 24px;
             width: auto;
             display: block;
         }
@@ -95,7 +106,7 @@
             gap: 6px;
             letter-spacing: 0.05em;
             white-space: nowrap;
-            flex-shrink: 0; /* Don't squash the badge */
+            flex-shrink: 0;
         }
 
         .pulse-dot {
@@ -248,7 +259,7 @@
             align-items: flex-start;
         }
 
-        /* Impact Grid Styling */
+        /* Impact Grid */
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -337,6 +348,59 @@
             font-size: 0.8rem;
         }
 
+        /* Social Integrations Section */
+        .social-footer {
+            padding: 60px 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-text h4 {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .social-text p {
+            font-size: 0.8rem;
+            color: var(--muted-text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .social-icon:hover {
+            color: var(--glow-green);
+            border-color: var(--glow-green);
+            transform: translateY(-5px);
+            background: rgba(74, 222, 128, 0.05);
+        }
+
         /* Footer */
         footer {
             padding: 80px 6% 40px;
@@ -362,10 +426,10 @@
         }
 
         @media (max-width: 600px) {
-            nav { padding: 12px 15px; } /* Tighten nav padding on small screens */
+            nav { padding: 12px 15px; }
             .logo { gap: 6px; }
             .logo img { height: 20px; }
-            
+            .social-footer { flex-direction: column; text-align: center; }
             .email-capture { flex-direction: column; background: transparent; border: none; padding: 0; gap: 15px; }
             .email-capture input { 
                 background: rgba(255,255,255,0.03); 
@@ -383,7 +447,7 @@
 <body>
 
     <nav>
-        <a href="Draft.html" class="logo">
+        <a href="index.html" class="logo">
             <img src="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/fb80e954-40fc-4eda-aebb-07db6ccf10d6.png" alt="IWS Logo">
             Integrated Wildlife Systems
         </a>
@@ -546,6 +610,20 @@
                     </form>
                     <div id="status-msg"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL MEDIA SECTION -->
+        <section class="social-footer">
+            <div class="social-text">
+                <h4>Connect with IWS</h4>
+                <p>Follow the 2026 New York Pilot mission and stay updated on biosecurity tech.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon" title="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:info@integratedwildlifesystems.com" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </section>
     </main>
