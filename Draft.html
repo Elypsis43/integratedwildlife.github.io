@@ -47,9 +47,9 @@
             z-index: 50;
         }
 
-        /* Navigation */
+        /* Navigation - Optimized for Mobile Spacing */
         nav {
-            padding: 15px 6%;
+            padding: 15px 4%; /* Reduced side padding slightly for more horizontal space */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,31 +64,42 @@
         .logo {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
-            letter-spacing: 0.1em;
+            font-size: clamp(0.65rem, 2.5vw, 0.9rem); /* Adjusted clamp for mobile */
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             color: #fff;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px; /* Slightly tighter gap on logo elements for mobile */
             text-decoration: none;
+            flex-shrink: 1; /* Allow logo to take priority */
+            margin-right: 10px;
+        }
+
+        .logo img {
+            height: 24px; /* Slightly smaller icon on mobile */
+            width: auto;
+            display: block;
         }
 
         .status-badge {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             background: rgba(74, 222, 128, 0.05);
             color: var(--glow-green);
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 100px;
             border: 1px solid rgba(74, 222, 128, 0.2);
             font-weight: 700;
             display: flex;
-            align-items: center; gap: 8px;
+            align-items: center; 
+            gap: 6px;
             letter-spacing: 0.05em;
+            white-space: nowrap;
+            flex-shrink: 0; /* Don't squash the badge */
         }
 
         .pulse-dot {
-            width: 6px; height: 6px;
+            width: 5px; height: 5px;
             background: var(--glow-green);
             border-radius: 50%;
             animation: pulse-op 2s infinite;
@@ -96,7 +107,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 6% 120px;
+            padding: 60px 6% 100px;
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
@@ -351,6 +362,10 @@
         }
 
         @media (max-width: 600px) {
+            nav { padding: 12px 15px; } /* Tighten nav padding on small screens */
+            .logo { gap: 6px; }
+            .logo img { height: 20px; }
+            
             .email-capture { flex-direction: column; background: transparent; border: none; padding: 0; gap: 15px; }
             .email-capture input { 
                 background: rgba(255,255,255,0.03); 
@@ -369,7 +384,7 @@
 
     <nav>
         <a href="Draft.html" class="logo">
-            <i class="fa-solid fa-satellite" style="color: var(--glow-green);"></i>
+            <img src="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/fb80e954-40fc-4eda-aebb-07db6ccf10d6.png" alt="IWS Logo">
             Integrated Wildlife Systems
         </a>
         <div class="status-badge">
