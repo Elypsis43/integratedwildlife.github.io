@@ -151,22 +151,28 @@
         }
 
         /* Buttons */
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
-        .primary-btn, .secondary-btn {
-            padding: 18px 36px;
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+        .primary-btn, .secondary-btn, .tertiary-btn {
+            padding: 16px 30px;
             border-radius: 6px;
             font-weight: 700;
             font-family: var(--font-display);
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .primary-btn { background: #fff; color: #000; border: 1px solid #fff; }
-        .secondary-btn { background: transparent; color: #fff; border: 1px solid var(--border-subtle); }
-        .primary-btn:hover { background: var(--glow-green); border-color: var(--glow-green); transform: translateY(-3px); }
-        .secondary-btn:hover { border-color: #fff; transform: translateY(-3px); }
+        .secondary-btn { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-subtle); }
+        .tertiary-btn { background: transparent; color: var(--muted-text); border: 1px solid var(--border-subtle); }
+        
+        .primary-btn:hover { background: var(--glow-green); border-color: var(--glow-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(74, 222, 128, 0.15); }
+        .secondary-btn:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-3px); }
+        .tertiary-btn:hover { border-color: var(--gold-leaf); color: #fff; transform: translateY(-3px); }
 
         /* Telemetry Box */
         .telemetry-node {
@@ -202,7 +208,6 @@
         .data-label { color: var(--muted-text); }
         .data-value { color: #fff; font-weight: 500; }
 
-        /* IMAGE OVERLAY STYLES */
         .hardware-showcase {
             position: relative;
             width: 100%;
@@ -228,21 +233,8 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Split top and bottom */
-            align-items: flex-start; /* Keep top item on left */
-        }
-
-        .overlay-top {
-            width: 100%;
-            text-align: left;
-        }
-
-        .overlay-bottom {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center bottom items */
-            text-align: center;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         /* Impact Grid Styling */
@@ -334,18 +326,6 @@
             font-size: 0.8rem;
         }
 
-        .email-capture button:hover { background: var(--glow-green); color: #000; }
-        .email-capture button:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        #status-msg {
-            margin-top: 20px;
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            min-height: 20px;
-        }
-
         /* Footer */
         footer {
             padding: 80px 6% 40px;
@@ -359,12 +339,9 @@
         .footer-info { color: var(--muted-text); font-size: 0.7rem; letter-spacing: 0.05em; line-height: 2; }
         .footer-links { display: flex; gap: 30px; justify-content: flex-end; }
         .footer-links a { color: #fff; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.6; }
-        .footer-links a:hover { opacity: 1; color: var(--glow-green); }
 
-        /* Animations */
         @keyframes pulse-op { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* Tablet & Mobile Breaks */
         @media (max-width: 1100px) {
             .hero { grid-template-columns: 1fr; text-align: center; gap: 60px; }
             .hero-copy { margin: 0 auto 50px; }
@@ -413,8 +390,18 @@
                     EchoLink is the world's first autonomous bat telemetry platform. We close the 30-day detection gap for White-Nose Syndrome by turning individual Myotis into real-time bio-sensors.
                 </p>
                 <div class="btn-group">
-                    <a href="Roadmap.html" class="primary-btn">View Pilot Roadmap</a>
-                    <a href="Regulatory.html" class="secondary-btn">Agency Compliance</a>
+                    <a href="Roadmap.html" class="primary-btn">
+                        <i class="fa-solid fa-map"></i>
+                        Pilot Roadmap
+                    </a>
+                    <a href="Features.html" class="secondary-btn">
+                        <i class="fa-solid fa-microchip"></i>
+                        Tech Features
+                    </a>
+                    <a href="Regulatory.html" class="tertiary-btn">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        Regulatory
+                    </a>
                 </div>
             </div>
 
@@ -443,13 +430,11 @@
                                 Infrastructure-Free
                              </h3>
                         </div>
-
-                        <div class="overlay-bottom">
+                        <div class="overlay-bottom" style="width: 100%; text-align: center;">
                            <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; opacity: 0.8; margin: 0;">
                                 Persistent Real-Time Bio-Surveillance
                           </p> 
                         </div>
-
                     </div>
                     <img src="https://raw.githubusercontent.com/Elypsis43/integratedwildlife.github.io/main/Images/IMG_2484.jpeg" alt="EchoLink Hardware">
                 </div>
@@ -460,6 +445,7 @@
             </div>
         </section>
 
+        <!-- IMPACT SECTION -->
         <section id="strategic-wins" style="padding: 100px 6% 40px; background: linear-gradient(180deg, var(--bg-midnight) 0%, var(--surface-deep) 100%); border-top: 1px solid var(--border-subtle);">
             <div style="max-width: 1400px; margin: 0 auto;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 20px;">
@@ -489,7 +475,7 @@
                     <div style="background: rgba(255,255,255,0.02); padding: 40px; border-left: 3px solid #6366f1; border-radius: 4px;">
                         <span style="color: #818cf8; font-weight: 700; font-size: 1.4rem; font-family: var(--font-display);">∞ CYCLE</span>
                         <h3 style="margin: 15px 0 10px 0; font-family: var(--font-display); font-size: 1.1rem;">Bio-Transient</h3>
-                        <p style="color: var(--muted-text); font-size: 0.95rem; line-height: 1.6;">Proprietary TENG harvesting converts flight vibrations into power for the 120-day mission, followed by full biodegradation within one year to ensure zero-waste impact on the environment.</p>
+                        <p style="color: var(--muted-text); font-size: 0.95rem; line-height: 1.6;">Proprietary TENG harvesting converts flight vibrations into power for the 120-day mission, followed by full biodegradation within one year to ensure zero-waste impact.</p>
                     </div>
                 </div>
 
@@ -506,10 +492,10 @@
             </div>
         </section>
 
+        <!-- COMPARISON SECTION -->
         <section class="impact-section">
             <span class="hero-tag">Comparative ROI</span>
             <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-top: 15px; font-weight: 700;">The End of Manual Tracking.</h2>
-            
             <div class="table-wrapper">
                 <table class="comparison-table">
                     <thead>
@@ -520,42 +506,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cost Per Tag</td>
-                            <td>$250.00 — $400.00</td>
-                            <td class="highlight-col">&lt; $50.00</td>
-                        </tr>
-                        <tr>
-                            <td>Data Latency</td>
-                            <td>3 — 6 Weeks (Manual)</td>
-                            <td class="highlight-col">&lt; 15 Minutes (Auto)</td>
-                        </tr>
-                        <tr>
-                            <td>Field Labor Cost</td>
-                            <td>High (Teams required)</td>
-                            <td class="highlight-col">Zero (Satellite-Direct)</td>
-                        </tr>
-                        <tr>
-                            <td>Deployment Range</td>
-                            <td>Line of Sight Only</td>
-                            <td class="highlight-col">Global / Remote</td>
-                        </tr>
-                        <tr>
-                            <td>Environmental Impact</td>
-                            <td>Persistent E-Waste</td>
-                            <td class="highlight-col">Biodegradable Chitin</td>
-                        </tr>
+                        <tr><td>Cost Per Tag</td><td>$250.00 — $400.00</td><td class="highlight-col">&lt; $50.00</td></tr>
+                        <tr><td>Data Latency</td><td>3 — 6 Weeks (Manual)</td><td class="highlight-col">&lt; 15 Minutes (Auto)</td></tr>
+                        <tr><td>Field Labor Cost</td><td>High (Teams required)</td><td class="highlight-col">Zero (Satellite-Direct)</td></tr>
+                        <tr><td>Deployment Range</td><td>Line of Sight Only</td><td class="highlight-col">Global / Remote</td></tr>
+                        <tr><td>Environmental Impact</td><td>Persistent E-Waste</td><td class="highlight-col">Biodegradable Chitin</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
+        <!-- CTA SECTION -->
         <section class="cta-section">
             <div class="cta-inner">
                 <span class="hero-tag" style="justify-content: center;">Contact Registry</span>
                 <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 15px; font-weight: 700;">Secure 2026 Pilot Access.</h2>
                 <p style="color: var(--muted-text); margin-top: 15px; max-width: 600px; margin-inline: auto;">Submit your institutional email to receive the full technical whitepaper and pilot specifications.</p>
-                
                 <div class="form-container">
                     <form id="contact-form" action="https://formspree.io/f/maqdooyp" method="POST" class="email-capture">
                         <input type="email" name="email" id="user-email" placeholder="Institutional Email (e.g. .gov, .edu)" required>
@@ -584,7 +550,6 @@
     </footer>
 
     <script>
-        // FORM LOGIC
         const form = document.getElementById("contact-form");
         const emailInput = document.getElementById("user-email");
         const mirrorInput = document.getElementById("reply-to-mirror");
@@ -592,9 +557,7 @@
         const statusMsg = document.getElementById("status-msg");
 
         if(emailInput && mirrorInput) {
-            emailInput.addEventListener("input", (e) => {
-                mirrorInput.value = e.target.value;
-            });
+            emailInput.addEventListener("input", (e) => mirrorInput.value = e.target.value);
         }
 
         if(form) {
@@ -605,21 +568,17 @@
                 statusMsg.style.color = "var(--gold-leaf)";
                 statusMsg.textContent = "Connecting to secure gateway...";
 
-                const formData = new FormData(form);
-
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
-                        body: formData,
+                        body: new FormData(form),
                         headers: { 'Accept': 'application/json' }
                     });
-
                     if (response.ok) {
                         window.location.href = "https://integratedwildlifesystems.com/Thanks.html";
                     } else {
-                        const data = await response.json();
                         statusMsg.style.color = "#ff6b6b";
-                        statusMsg.textContent = data.errors ? data.errors[0].message : "Submission error. Check email.";
+                        statusMsg.textContent = "Submission error. Check email.";
                         resetForm();
                     }
                 } catch (err) {
@@ -635,7 +594,6 @@
             submitBtn.textContent = "Register Interest";
         }
 
-        // TELEMETRY ANIMATION
         function updateClock() {
             const now = new Date();
             const utc = now.getUTCHours().toString().padStart(2, '0') + ":" + 
@@ -652,3 +610,4 @@
     </script>
 </body>
 </html>
+
