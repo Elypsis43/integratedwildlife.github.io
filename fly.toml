@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for echolink on 2026-05-03T12:57:45Z
+# fly.toml app configuration file generated for integratedwildlifehomepage on 2026-06-10T21:31:01Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'echolink'
-primary_region = 'dfw'
+app = 'integratedwildlifehomepage'
+primary_region = 'ams'
 
 [build]
 
