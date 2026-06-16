@@ -6,12 +6,6 @@
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
         iframe { width: 100%; height: 100%; border: none; }
     </style>
-    <script>
-    // Mobile: redirect main page directly to Fly backend
-    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || ('ontouchstart' in window && innerWidth < 1024)) {
-        window.location.replace('https://echolink-backend.fly.dev/?eval=genius-ny');
-    }
-    </script>
 </head>
 <body>
     <iframe src="https://echolink-backend.fly.dev/"></iframe>
